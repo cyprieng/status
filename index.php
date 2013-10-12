@@ -144,8 +144,7 @@
 				},1000,function(){});
 
 				$("#httpStatus").html(stats.service.apache);
-				$("#mysqlStatus").html(stats.service.mysql);
-				$("#minecraftStatus").html(stats.service.craftbukkit);				
+				$("#mysqlStatus").html(stats.service.mysql);				
 			});
 		}
 
@@ -224,7 +223,6 @@
 				<h3>services<h3>
 				<p >HTTP server: <span id="httpStatus"></span></p>
 				<p>MySQL: <span id="mysqlStatus"></span></p>
-				<p><a href="/paul">Minecraft server</a>: <span id="minecraftStatus"></span></p>
 			</div>
 			<div id="credits">
 				<p>Powered by: <a href="http://debian.org">Debian</a> | <a href="http://httpd.apache.org">Apache HTTP server</a> | <a href="http://cloudflare.com">CloudFlare</a> | <a href="http://bukkit.org">Bukkit</a> | <a href="https://github.com/h02/Minecraft-PHP-Query-Class">Minecraft PHP Query</a> | <a href="https://github.com/haegenschlatt/status">Source code</a></p>
