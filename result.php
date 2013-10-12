@@ -90,7 +90,7 @@ define('RED',"#C9362E");
 
 // Since we can't specify checking of any arbitrary process from the AJAX request (injection risk), we pre-define the processes here.
 $processes = array(
-	"apache"=>"",
+	"lighttpd"=>"",
 	"mysql"=>"",
 	"craftbukkit"=>""
 );
@@ -122,7 +122,7 @@ $result = array(
 		format_bytes($memory["Total RAM"])
 		),
 	"service" => array(
-		"apache" => $processes["apache"],
+		"lighttpd" => $processes["lighttpd"],
 		"mysql" => $processes["mysql"],
 		"craftbukkit" => $processes["craftbukkit"]
 		)

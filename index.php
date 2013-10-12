@@ -143,7 +143,7 @@
 					width: (stats.memory[0] * 10) + "px"
 				},1000,function(){});
 
-				$("#httpStatus").html(stats.service.apache);
+				$("#httpStatus").html(stats.service.lighttpd);
 				$("#mysqlStatus").html(stats.service.mysql);				
 			});
 		}
