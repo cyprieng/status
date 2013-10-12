@@ -130,7 +130,7 @@
 
 				$("#procSpeed").html(stats.proc);
 				$("#cpuBar").animate({
-					width: ((stats.proc / 2800) * 1000) + "px"
+					width: (stats.proc * 10) + "px"
 				},1000,function(){});
 
 				$("#diskInfo").html(stats.disk[0] + "%, " + stats.disk[1] + " used / " + stats.disk[2] + "total");
@@ -200,7 +200,7 @@
 			</div>
 			<div class="block">
 				<h3>processor speed</h3>
-				<p><span id="procSpeed"></span> MHz / 2800 MHz</p>
+				<p><span id="procSpeed"></span> %</p>
 				<div class="barContainer">
 					<div class="bar" id="cpuBar"></div>
 				</div>

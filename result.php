@@ -78,9 +78,8 @@ $memory['Swap Percent Free'] = calculate_percentage($memory['Used Swap'],$memory
 $temp = exec('acpi -t');
 $temp = str_replace("Thermal 0: ok, ","",$temp);
 
-$cpu = exec('cat /proc/cpuinfo | grep "cpu MHz"');
-$cpu_ar = explode(" ", $cpu);
-$cpu_out = (int)$cpu_ar[2];
+$cpu = exec("top -b -n 1 | grep 'Cpu(s):'");
+$cpu = explode(" ", $cpu);
 
 define('GREEN',"#3DB015");
 define('YELLOW',"#FAFC4F");
@@ -108,7 +107,7 @@ $result = array(
 		$load_out[1],
 		$load_out[2]
 		),
-	"proc" => $cpu_out,
+	"proc" => str_replace("%us,", "", $cpu[2]),
 	"disk" => array(
 		str_replace('%', '', $hd[16]),
 		format_bytes(kb2bytes($hd[13])),
