@@ -75,8 +75,7 @@ $memory['Used RAM'] = $memory['Total RAM'] - $memory['Free RAM'] - $memory['Cach
 $memory['RAM Percent Free'] = calculate_percentage($memory['Used RAM'],$memory['Total RAM']); 
 $memory['Swap Percent Free'] = calculate_percentage($memory['Used Swap'],$memory['Total Swap']); 
 
-$temp = exec('acpi -t');
-$temp = str_replace("Thermal 0: ok, ","",$temp);
+$temp = exec("cat temp");
 
 $cpu = exec("top -b -n 1 | grep 'Cpu(s):'");
 $cpu = explode(" ", $cpu);

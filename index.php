@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<meta charset="utf-8" />
 		<style>
 			body {
 				background: #fff;
@@ -97,7 +98,7 @@
 				stats = eval('(' + raw + ')');
 				$("#uptime").html(stats.uptime);
 				
-				$("#temp").html(stats.temp);
+				$("#temp").html(stats.temp + '°C');
 
 				if(stats.load[0] < 0.75)
 				{
@@ -175,7 +176,7 @@
 			</div>
 
 			<div class="block">
-				<h3>core temperature</h3>
+				<h3>temperature</h3>
 				<p id="temp"></p>
 			</div>
 			<div class="block">
