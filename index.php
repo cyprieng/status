@@ -169,7 +169,7 @@
 <body>
 		<div id="container">
 			<header>
-				<h1>kywu status panel</h1>
+				<h1>DNS-320 status panel</h1>
 				<h3>what's up?</h3>
 			</header>
 			<div id="updateBlock">
@@ -235,7 +235,7 @@
 				<p>MySQL: <span id="mysqlStatus"></span></p>
 			</div>
 			<div id="credits">
-				<p>Powered by: <a href="http://debian.org">Debian</a> | <a href="http://httpd.apache.org">Apache HTTP server</a> | <a href="http://cloudflare.com">CloudFlare</a> | <a href="http://bukkit.org">Bukkit</a> | <a href="https://github.com/h02/Minecraft-PHP-Query-Class">Minecraft PHP Query</a> | <a href="https://github.com/haegenschlatt/status">Source code</a></p>
+				<p><a href="https://github.com/cyprieng/status">Source code</a></p>
 			</div>
 		</div>
 	</body>
