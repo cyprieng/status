@@ -134,9 +134,14 @@
 					width: (stats.proc * 10) + "px"
 				},1000,function(){});
 
-				$("#diskInfo").html(stats.disk[0] + "%, " + stats.disk[1] + " used / " + stats.disk[2] + "total");
-				$("#diskBar").animate({
-					width: (stats.disk[0] * 10) + "px"
+				$("#diskInfo1").html(stats.disk1[0] + "%, " + stats.disk1[1] + " used / " + stats.disk1[2] + "total");
+				$("#diskBar1").animate({
+					width: (stats.disk1[0] * 10) + "px"
+				},1000,function(){});
+
+				$("#diskInfo2").html(stats.disk2[0] + "%, " + stats.disk2[1] + " used / " + stats.disk2[2] + "total");
+				$("#diskBar2").animate({
+					width: (stats.disk2[0] * 10) + "px"
 				},1000,function(){});
 
 				$("#memInfo").html(stats.memory[0] + "%, " + stats.memory[3] + " used / " + stats.memory[4] + "total");
@@ -208,9 +213,13 @@
 			</div>
 			<div class="block">
 				<h3>disk usage</h3>
-				<p id="diskInfo">%,  used /  total</p>
+				<p id="diskInfo1">%,  used /  total</p>
 				<div class="barContainer">
-					<div class="bar" id="diskBar"></div>
+					<div class="bar" id="diskBar1"></div>
+				</div>
+				<p id="diskInfo2">%,  used /  total</p>
+				<div class="barContainer">
+					<div class="bar" id="diskBar2"></div>
 				</div>
 			</div>
 			<div class="block">

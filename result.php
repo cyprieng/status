@@ -60,7 +60,8 @@ $uptime_out = substr($update_out[2], 0, strrpos($update_out[2], ' ')-2);
 $load_out = explode(", ",$update_out[4]);
 
 // Hard drive percentage
-$hd = explode(" ",exec("df /mnt/HD/HD_a2/"));
+$hd1 = explode(" ",exec("df /mnt/HD/HD_a2/"));
+$hd2 = explode(" ",exec("df /mnt/HD/HD_b2/"));
 
 $memory = array( 'Total RAM'  => 'MemTotal', 
 				 'Free RAM'   => 'MemFree', 
@@ -107,10 +108,15 @@ $result = array(
 		$load_out[2]
 		),
 	"proc" => str_replace("%us,", "", $cpu[2]),
-	"disk" => array(
-		str_replace('%', '', $hd[16]),
-		format_bytes(kb2bytes($hd[13])),
-		format_bytes(kb2bytes($hd[12]))
+	"disk1" => array(
+		str_replace('%', '', $hd1[16]),
+		format_bytes(kb2bytes($hd1[13])),
+		format_bytes(kb2bytes($hd1[12]))
+		),
+	"disk2" => array(
+		str_replace('%', '', $hd2[16]),
+		format_bytes(kb2bytes($hd2[13])),
+		format_bytes(kb2bytes($hd2[12]))
 		),
 	"memory" => array(
 		$memory["RAM Percent Free"],
