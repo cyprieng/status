@@ -78,7 +78,7 @@ $memory['Swap Percent Free'] = calculate_percentage($memory['Used Swap'],$memory
 
 $temp = exec("cat temp");
 
-$cpu = exec("top -b -n 1 | grep 'Cpu(s):'");
+$cpu = exec("top -b -n 2 | grep 'Cpu(s):'");
 $cpu = explode(" ", $cpu);
 
 define('GREEN',"#3DB015");
@@ -107,7 +107,7 @@ $result = array(
 		$load_out[1],
 		$load_out[2]
 		),
-	"proc" => str_replace("%us,", "", $cpu[2]),
+	"proc" => str_replace("%us,", "", $cpu[1]),
 	"disk1" => array(
 		str_replace('%', '', $hd1[16]),
 		format_bytes(kb2bytes($hd1[13])),
