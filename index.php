@@ -150,7 +150,9 @@
 				},1000,function(){});
 
 				$("#httpStatus").html(stats.service.lighttpd);
-				$("#mysqlStatus").html(stats.service.mysql);				
+				$("#mysqlStatus").html(stats.service.mysql);
+
+				$("#ip").html(stats.network.ip);				
 			});
 		}
 
@@ -233,6 +235,10 @@
 				<h3>services<h3>
 				<p >HTTP server: <span id="httpStatus"></span></p>
 				<p>MySQL: <span id="mysqlStatus"></span></p>
+			</div>
+			<div class="block">
+				<h3>network<h3>
+				<p >IP: <span id="ip"></span></p>
 			</div>
 			<div id="credits">
 				<p><a href="https://github.com/cyprieng/status">Source code</a></p>

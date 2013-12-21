@@ -78,8 +78,13 @@ $memory['Swap Percent Free'] = calculate_percentage($memory['Used Swap'],$memory
 
 $temp = exec("cat temp");
 
-$cpu = exec("top -b -n 2 | grep 'Cpu(s):'");
-$cpu = explode(" ", $cpu);
+$cpus = exec("top -b -n 2 | grep 'Cpu(s):'");
+$cpus = explode(" ", $cpus);
+
+foreach($cpus as $cpu){
+	if(preg_match("/us/", $cpu)) break;
+}
+
 
 define('GREEN',"#3DB015");
 define('YELLOW',"#FAFC4F");
@@ -90,14 +95,15 @@ define('RED',"#C9362E");
 // Since we can't specify checking of any arbitrary process from the AJAX request (injection risk), we pre-define the processes here.
 $processes = array(
 	"lighttpd"=>"",
-	"mysql"=>"",
-	"craftbukkit"=>""
+	"mysql"=>""
 );
 
 foreach($processes as $key => $value)
 {
 	$processes[$key] = checkProcess($key);
 }
+
+$ip = exec("wget http://checkip.dyndns.org/ -O - -o /dev/null | cut -d: -f 2 | cut -d\< -f 1");
 
 $result = array(
 	"uptime" => $uptime_out,
@@ -107,7 +113,7 @@ $result = array(
 		$load_out[1],
 		$load_out[2]
 		),
-	"proc" => str_replace("%us,", "", $cpu[1]),
+	"proc" => str_replace("%us,", "", $cpu),
 	"disk1" => array(
 		str_replace('%', '', $hd1[16]),
 		format_bytes(kb2bytes($hd1[13])),
@@ -127,8 +133,10 @@ $result = array(
 		),
 	"service" => array(
 		"lighttpd" => $processes["lighttpd"],
-		"mysql" => $processes["mysql"],
-		"craftbukkit" => $processes["craftbukkit"]
+		"mysql" => $processes["mysql"]
+		),
+	"network" => array(
+		"ip" => $ip
 		)
 );
 echo json_encode($result);
