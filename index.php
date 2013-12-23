@@ -156,11 +156,23 @@
 			});
 		}
 
+		function speedtest(){
+			$.get("speedtest.php", function(raw) {
+				$("#speedtest").html(raw);
+			});
+		}
+
 		$(function(){
 			$("#update").click(function(event)
 			{
 				event.preventDefault();
 				updateAll();
+			});
+			$("#launchSpeedtest").click(function(event)
+			{
+				event.preventDefault();
+				$("#speedtest").html("Loading...");
+				speedtest();
 			});
 			updateAll();
 			setInterval("updateAll()",5000);
@@ -239,6 +251,10 @@
 			<div class="block">
 				<h3>network<h3>
 				<p >IP: <span id="ip"></span></p>
+			</div>
+			<div class="block">
+				<h3>speedtest<h3>
+				<p id="speedtest"><a id="launchSpeedtest" href="#">Launch speedtest</a></p>
 			</div>
 			<div id="credits">
 				<p><a href="https://github.com/cyprieng/status">Source code</a></p>
